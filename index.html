@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>鹭白生信 — 从数据到发表，专注科研生信分析</title>
+  <meta name="description" content="鹭白生信工作室为高校科研人员与临床医生提供专业的生物信息学分析服务，覆盖公共数据库挖掘、多组学分析、SCI论文支持全流程。">
+  <meta name="keywords" content="生物信息学,生信分析,SCI论文,GEO数据库,TCGA,RNA-seq,公共数据挖掘,科研服务">
+  <link rel="canonical" href="https://www.egret-bio.com/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="鹭白生信 — 从数据到发表，专注科研生信分析">
+  <meta property="og:description" content="为科研人员与临床医生提供专业的生物信息学分析服务，覆盖公共数据库挖掘、多组学分析、SCI论文支持全流程。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.egret-bio.com/">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="鹭白生信 — 从数据到发表，专注科研生信分析">
+  <meta name="twitter:description" content="为科研人员与临床医生提供专业的生物信息学分析服务，覆盖公共数据库挖掘、多组学分析、SCI论文支持全流程。">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eef4f9',
+              100: '#d4e3f0',
+              200: '#b8cce0',
+              300: '#9cb5d0',
+              400: '#8fa8c8',
+              500: '#7a9ab8',
+              600: '#6b8cae',
+              700: '#5a7a9c',
+            }
+          },
+          fontFamily: {
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"PingFang SC"', '"Microsoft YaHei"', '"Noto Sans SC"', '"Helvetica Neue"', 'Arial', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Structured Data: Organization + Service -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "鹭白生信工作室",
+        "alternateName": "Egret Bioinformatics Studio",
+        "description": "为高校科研人员与临床医生提供专业的生物信息学分析服务",
+        "url": "https://www.egret-bio.com/",
+        "sameAs": [],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "业务咨询",
+          "availableLanguage": ["Chinese", "English"]
+        }
+      },
+      {
+        "@type": "Service",
+        "serviceType": "生物信息学分析服务",
+        "provider": {"@id": "https://www.egret-bio.com/"},
+        "areaServed": "CN",
+        "audience": {
+          "@type": "Audience",
+          "audienceType": "高校科研人员、临床医生"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --color-bg: #ffffff;
+      --color-bg-alt: #f0f9ff;
+      --color-text-primary: #1e293b;
+      --color-text-secondary: #475569;
+      --color-text-muted: #94a3b8;
+      --color-border: #e0f2fe;
+      --color-accent: #0ea5e9;
+      --color-accent-hover: #0284c7;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    ::selection {
+      background-color: #bae6fd;
+      color: #0c4a6e;
+    }
+
+    /* Focus styles for accessibility */
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible {
+      outline: 2px solid var(--color-accent);
+      outline-offset: 2px;
+    }
+
+    /* Print styles */
+    @media print {
+      nav, .no-print { display: none !important; }
+      body { font-size: 12pt; color: #000; }
+      a { text-decoration: underline; color: #000; }
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #f0f9ff; }
+    ::-webkit-scrollbar-thumb { background: #bae6fd; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #7dd3fc; }
+
+    h1, h2, h3 { text-wrap: balance; }
+    p { text-wrap: pretty; }
+  </style>
+</head>
+
+<body class="font-sans text-slate-800 bg-white antialiased">
+
+  <!-- Skip Link for Accessibility -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-brand-500 focus:text-white focus:rounded">
+    跳转到主要内容
+  </a>
+
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-sm border-b border-brand-200 z-50" aria-label="主导航">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex justify-between items-center h-20">
+        <a href="#" class="flex items-center gap-3 text-xl font-bold text-slate-800 tracking-tight" aria-label="鹭白生信首页">
+          <div class="w-20 h-20 rounded-full overflow-hidden flex-shrink-0">
+            <img src="egret_logo.webp" alt="" class="h-18 w-auto" loading="eager" decoding="async">
+          </div>
+          鹭白生信
+        </a>
+
+        <div class="hidden md:flex items-center gap-8">
+          <a href="#services" class="text-sm text-slate-600 hover:text-slate-800 transition-colors">核心服务</a>
+          <a href="#cases" class="text-sm text-slate-600 hover:text-slate-800 transition-colors">合作成果</a>
+          <a href="#about" class="text-sm text-slate-600 hover:text-slate-800 transition-colors">关于我们</a>
+          <a href="#contact" class="text-sm px-5 py-2 bg-brand-500 text-white rounded hover:bg-brand-600 transition-colors">联系我们</a>
+        </div>
+
+        <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-600" aria-expanded="false" aria-controls="mobile-menu" aria-label="打开菜单">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden hidden bg-white border-b border-brand-200" role="menu">
+      <div class="px-6 py-4 space-y-1">
+        <a href="#services" class="block py-2 text-base text-slate-600" role="menuitem">核心服务</a>
+        <a href="#cases" class="block py-2 text-base text-slate-600" role="menuitem">合作成果</a>
+        <a href="#about" class="block py-2 text-base text-slate-600" role="menuitem">关于我们</a>
+        <a href="#contact" class="block py-2 text-base text-brand-500 font-medium" role="menuitem">联系我们</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main id="main-content">
+
+    <!-- Hero -->
+    <section class="pt-60 pb-20 lg:pt-72 lg:pb-28 px-6" aria-labelledby="hero-heading">
+      <div class="max-w-6xl mx-auto">
+        <div class="max-w-3xl">
+          <h1 id="hero-heading" class="text-3xl lg:text-4xl font-bold text-slate-800 leading-tight mb-6">
+            从数据到发表，专注科研生信分析
+          </h1>
+          <p class="text-lg text-slate-600 leading-relaxed max-w-2xl mb-10">
+            为高校科研人员与临床医生提供专业的生物信息学分析服务。从公共数据库挖掘到多组学整合分析，从原始数据到可发表图表，覆盖 SCI 论文生信分析全流程。
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a href="#services" class="px-7 py-3 bg-brand-500 text-white text-sm font-medium rounded hover:bg-brand-600 transition-colors">
+              了解服务内容
+            </a>
+            <a href="#contact" class="px-7 py-3 border border-brand-300 text-slate-700 text-sm font-medium rounded hover:border-brand-400 hover:bg-brand-50 transition-colors">
+              预约咨询
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-20 lg:py-28 px-6" aria-labelledby="services-heading">
+      <div class="max-w-6xl mx-auto">
+        <div class="mb-16">
+          <p class="text-sm font-medium text-brand-500 tracking-wider mb-3">SERVICES</p>
+          <h2 id="services-heading" class="text-3xl lg:text-4xl font-bold text-slate-800">核心服务</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <!-- Service 1 -->
+          <article class="border border-brand-200 rounded-lg p-8 hover:border-brand-300 transition-colors">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 rounded-lg bg-brand-50 flex items-center justify-center flex-shrink-0" aria-hidden="true">
+                <svg class="w-5 h-5 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                </svg>
+              </div>
+              <h3 class="text-xl font-semibold text-slate-800">公共数据库挖掘</h3>
+
+            </div>
+            <p class="text-slate-600 leading-relaxed mb-5">
+              充分利用公开数据资源，无需自行实验即可开展研究。支持从数据检索、清洗、质控到深度分析的全流程服务。
+            </p>
+            <div class="mb-5">
+              <p class="text-sm text-brand-500 mb-2">支持数据库</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2.5 py-1 bg-brand-100 text-slate-600 text-xs rounded">GEO</span>
+                <span class="px-2.5 py-1 bg-brand-100 text-slate-600 text-xs rounded">TCGA</span>
+                <span class="px-2.5 py-1 bg-brand-100 text-slate-600 text-xs rounded">CGGA</span>
+                <span class="px-2.5 py-1 bg-brand-100 text-slate-600 text-xs rounded">ArrayExpress</span>
+                <span class="px-2.5 py-1 bg-brand-100 text-slate-600 text-xs rounded">GTEx</span>
+              </div>
+            </div>
+            <div>
+              <p class="text-sm text-brand-500 mb-2">分析内容（部分）</p>
+              <ul class="grid grid-cols-2 gap-x-4 gap-y-1.5 text-sm text-slate-700">
+                <li class="flex items-start gap-1.5"><span class="text-brand-500 mt-0.5" aria-hidden="true">•</span>DEG 差异分析</li>
+                <li class="flex items-start gap-1.5"><span class="text-brand-500 mt-0.5" aria-hidden="true">•</span>WGCNA</li>
+                <li class="flex items-start gap-1.5"><span class="text-brand-500 mt-0.5" aria-hidden="true">•</span>机器学习</li>
+                <li class="flex items-start gap-1.5"><span class="text-brand-500 mt-0.5" aria-hidden="true">•</span>ceRNA 网络</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Service 2 -->
+          <article class="border border-brand-200 rounded-lg p-8 hover:border-brand-300 transition-colors">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 rounded-lg bg-brand-50 flex items-center justify-center flex-shrink-0" aria-hidden="true">
+                <svg class="w-5 h-5 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                </svg>
+              </div>
+              <h3 class="text-xl font-semibold text-slate-800">常规组学数据分析</h3>
+            </div>
+            <p class="text-slate-600 leading-relaxed mb-5">
+              支持各类组学数据的标准化分析流程，从原始数据质控到差异分析、功能注释、可视化报告，提供可直接用于论文发表的分析结果。
+            </p>
+            <div>
+              <p class="text-sm text-brand-500 mb-2">支持数据类型</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2.5 py-1 bg-brand-100 text-slate-600 text-xs rounded">Bulk RNA-seq</span>
+                <span class="px-2.5 py-1 bg-brand-100 text-slate-600 text-xs rounded">miRNA</span>
+                <span class="px-2.5 py-1 bg-brand-100 text-slate-600 text-xs rounded">lncRNA</span>
+                <span class="px-2.5 py-1 bg-brand-100 text-slate-600 text-xs rounded">circRNA</span>
+                <span class="px-2.5 py-1 bg-brand-100 text-slate-600 text-xs rounded">450K/850K 甲基化芯片</span>
+                <span class="px-2.5 py-1 bg-brand-100 text-slate-600 text-xs rounded">16S / ITS 微生物组</span>
+                <span class="px-2.5 py-1 bg-brand-100 text-slate-600 text-xs rounded">mNGS</span>
+                <span class="px-2.5 py-1 bg-brand-100 text-slate-600 text-xs rounded">蛋白组</span>
+                <span class="px-2.5 py-1 bg-brand-100 text-slate-600 text-xs rounded">代谢组</span>
+                <span class="px-2.5 py-1 bg-brand-100 text-slate-600 text-xs rounded">单细胞数据</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Service 3 -->
+          <article class="border border-brand-200 rounded-lg p-8 hover:border-brand-300 transition-colors">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 rounded-lg bg-brand-50 flex items-center justify-center flex-shrink-0" aria-hidden="true">
+                <svg class="w-5 h-5 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                </svg>
+              </div>
+              <h3 class="text-xl font-semibold text-slate-800">SCI 论文与科研支持</h3>
+            </div>
+            <p class="text-slate-600 leading-relaxed mb-5">
+              不仅提供数据分析，更协助您将结果转化为高质量的学术论文。从课题设计到审稿回复，提供全流程科研支持服务。
+            </p>
+            <ul class="space-y-2 text-sm text-slate-700">
+              <li class="flex items-start gap-2"><span class="text-brand-500 mt-0.5" aria-hidden="true">•</span>课题设计与可行性评估</li>
+              <li class="flex items-start gap-2"><span class="text-brand-500 mt-0.5" aria-hidden="true">•</span>数据分析与统计验证</li>
+              <li class="flex items-start gap-2"><span class="text-brand-500 mt-0.5" aria-hidden="true">•</span>论文图表制作（符合期刊要求）</li>
+              <li class="flex items-start gap-2"><span class="text-brand-500 mt-0.5" aria-hidden="true">•</span>机制假说构建与法学整理</li>
+              <li class="flex items-start gap-2"><span class="text-brand-500 mt-0.5" aria-hidden="true">•</span>审稿意见协助处理与回复</li>
+            </ul>
+          </article>
+
+          <!-- Service 4 -->
+          <article class="border border-brand-200 rounded-lg p-8 hover:border-brand-300 transition-colors">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 rounded-lg bg-brand-50 flex items-center justify-center flex-shrink-0" aria-hidden="true">
+                <svg class="w-5 h-5 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                </svg>
+              </div>
+              <h3 class="text-xl font-semibold text-slate-800">AI + 生信自动化</h3>
+            </div>
+            <p class="text-slate-600 leading-relaxed mb-5">
+              将 AI 与生物信息学分析深度结合，用 AI 分担繁琐事务，让研究者更专注于科学问题与创新。
+            </p>
+            <ul class="space-y-2 text-sm text-slate-700">
+              <li class="flex items-start gap-2"><span class="text-brand-500 mt-0.5" aria-hidden="true">•</span>自动化分析和报告软件方案</li>
+              <li class="flex items-start gap-2"><span class="text-brand-500 mt-0.5" aria-hidden="true">•</span>AI 辅助科研效率提升方案</li>
+              <li class="flex items-start gap-2"><span class="text-brand-500 mt-0.5" aria-hidden="true">•</span>智能文献调研与解读</li>
+              <li class="flex items-start gap-2"><span class="text-brand-500 mt-0.5" aria-hidden="true">•</span>知识图谱构建</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cases / Publications -->
+    <section id="cases" class="py-20 lg:py-28 px-6 bg-brand-50" aria-labelledby="cases-heading">
+      <div class="max-w-6xl mx-auto">
+        <div class="mb-16">
+          <p class="text-sm font-medium text-brand-500 tracking-wider mb-3">CASES</p>
+          <h2 id="cases-heading" class="text-3xl lg:text-4xl font-bold text-slate-800">合作成果（部分）</h2>
+          <p class="mt-4 text-slate-600 max-w-2xl">已协助客户在专业期刊发表 SCI 论文，并在多个研究方向积累了丰富的分析经验。</p>
+        </div>
+
+        <!-- Published Papers -->
+        <div class="mb-12">
+          <h3 class="text-lg font-semibold text-slate-800 mb-6">协助发表的 SCI 论文</h3>
+          <div class="space-y-4">
+            <article class="bg-white border border-brand-200 rounded-lg p-6">
+              <p class="text-slate-800 font-medium leading-relaxed mb-2">
+                UQCR10 and TNNT1: Novel Biomarkers for Sarcopenia Identified Through Integrated Transcriptomic Analysis and Machine Learning
+              </p>
+              <p class="text-sm text-brand-500 italic">European Journal of Medical Research</p>
+            </article>
+          </div>
+        </div>
+
+        <!-- Analysis Directions -->
+        <div>
+          <h3 class="text-lg font-semibold text-slate-800 mb-6">协助完成的分析项目</h3>
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="bg-white border border-brand-200 rounded-lg p-6">
+              <h4 class="text-base font-semibold text-slate-800 mb-4">肿瘤预后标志物方向</h4>
+              <ul class="space-y-2.5 text-sm text-slate-600 list-disc list-inside marker:text-brand-400">
+                <li>单基因家族在癌症中的预后作用识别</li>
+                <li>DNA 甲基化生物标志物筛选</li>
+                <li>基因表达与甲基化联合分析识别肿瘤预后因子</li>
+              </ul>
+            </div>
+            <div class="bg-white border border-brand-200 rounded-lg p-6">
+              <h4 class="text-base font-semibold text-slate-800 mb-4">非编码 RNA 与网络分析方向</h4>
+              <ul class="space-y-2.5 text-sm text-slate-600 list-disc list-inside marker:text-brand-400">
+                <li>ceRNA 共表达网络构建与预后标志物识别</li>
+                <li>lncRNA / microRNA 表达谱预后标志物筛选</li>
+                <li>多数据库整合构建多基因预后模型</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-20 lg:py-28 px-6" aria-labelledby="about-heading">
+      <div class="max-w-6xl mx-auto">
+        <p class="text-sm font-medium text-brand-500 tracking-wider mb-3">ABOUT US</p>
+        <h2 id="about-heading" class="text-3xl lg:text-4xl font-bold text-slate-800 mb-6">关于我们</h2>
+        <div class="max-w-3xl space-y-4 text-slate-600 leading-relaxed">
+          <p>
+            核心团队由拥有 10 年以上的科研项目经验与产业转化能力的生物信息专家组成，擅长组学数据分析和公共数据挖掘。围绕SCI论文发表，可提供从选题、数据分析到协助处理审稿意见的全流程支持。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-20 lg:py-28 px-6 bg-brand-50" aria-labelledby="contact-heading">
+      <div class="max-w-6xl mx-auto">
+        <p class="text-sm font-medium text-brand-600 tracking-wider mb-3">CONTACT</p>
+        <h2 id="contact-heading" class="text-3xl lg:text-4xl font-bold text-slate-800 mb-4">开始您的项目</h2>
+        <p class="text-slate-600 leading-relaxed mb-12 max-w-2xl">
+          无论您是已有数据需要分析，还是希望基于公共数据库开展新课题，都可以与我们联系。我们会在 24 小时内回复您的咨询。
+        </p>
+
+        <div class="max-w-2xl">
+          <div class="space-y-8">
+            <div>
+              <p class="text-sm text-slate-500 mb-1">邮箱咨询</p>
+              <a href="mailto:jason_tang1@hotmail.com" class="text-xl text-slate-800 font-semibold hover:text-brand-600 transition-colors">
+                jason_tang1@hotmail.com
+              </a>
+              <p class="text-xs text-slate-400 mt-1">点击跳转邮箱客户端发送邮件</p>
+            </div>
+            <div class="border-t border-brand-200 pt-8">
+              <div class="grid grid-cols-2 gap-6">
+                <div>
+                  <p class="text-sm text-slate-500 mb-3">微信咨询</p>
+                  <img src="wechat_qr_code.webp?v=1" alt="微信咨询二维码" class="w-36 h-36 object-contain rounded-lg border border-brand-200 block" onerror="this.style.display='none'; this.outerHTML='<div class=\'w-36 h-36 rounded-lg border border-brand-200 flex items-center justify-center text-xs text-brand-400\'>请放置二维码图片<br>wechat_qr_code.webp</div>';">
+                  <p class="text-xs text-slate-400 mt-2">扫码添加微信咨询</p>
+                </div>
+                <div>
+                  <p class="text-sm text-slate-500 mb-3">交流群</p>
+                  <img src="wechat_group_qr_code.webp?v=2" alt="微信群二维码" class="w-36 h-36 object-contain rounded-lg border border-brand-200 block" onerror="this.style.display='none'; this.outerHTML='<div class=\'w-36 h-36 rounded-lg border border-brand-200 flex items-center justify-center text-xs text-brand-400\'>请放置二维码图片<br>wechat_group_qr_code.webp</div>';">
+                  <p class="text-xs text-slate-400 mt-2">扫码加入交流群</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="py-8 px-6 border-t border-brand-200 bg-white">
+    <div class="max-w-6xl mx-auto text-center">
+      <p class="text-sm text-brand-400">© 2026 鹭白生信工作室</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

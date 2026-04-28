@@ -1,0 +1,90 @@
+/* Minimal & Elegant Custom Styles */
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Selection color */
+::selection {
+    background-color: #d6d3d1;
+    color: #1c1917;
+}
+
+/* Reveal animation base */
+.reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger children delays */
+.reveal:nth-child(1) { transition-delay: 0ms; }
+.reveal:nth-child(2) { transition-delay: 80ms; }
+.reveal:nth-child(3) { transition-delay: 160ms; }
+.reveal:nth-child(4) { transition-delay: 240ms; }
+.reveal:nth-child(5) { transition-delay: 320ms; }
+.reveal:nth-child(6) { transition-delay: 400ms; }
+
+/* Navbar scroll state */
+nav.scrolled {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    border-color: rgba(231, 229, 228, 0.8);
+}
+
+/* Form focus states */
+input:focus,
+textarea:focus {
+    box-shadow: 0 0 0 3px rgba(120, 113, 108, 0.08);
+}
+
+/* Subtle hover lift for cards */
+.group:hover {
+    transform: translateY(-2px);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #fafaf9;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #d6d3d1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a8a29e;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+    
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* Typography refinements */
+h1, h2, h3 {
+    text-wrap: balance;
+}
+
+p {
+    text-wrap: pretty;
+}
