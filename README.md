@@ -62,7 +62,7 @@ python3 -m http.server 8080
 
 1. **推送代码**: 将本仓库推送到 GitHub
 2. **Cloudflare Pages**: 在 Cloudflare Dashboard 中绑定 GitHub 仓库，选择自动部署
-3. **自定义域名**: 在 Cloudflare Pages 设置中绑定 `www.egret-bio.com`
+3. **自定义域名**: 在 Cloudflare Pages 设置中绑定 `www.milimaili.com`
 4. **HTTPS**: Cloudflare 自动提供 SSL 证书
 5. **提交收录**:
    - [百度搜索资源平台](https://ziyuan.baidu.com/)
@@ -75,6 +75,37 @@ python3 -m http.server 8080
 |---------|--------|------|
 | 中国大陆 | DNSPod + 腾讯云 COS / 阿里云 OSS | 国内加速 |
 | 海外 | Cloudflare Pages | 全球 + 源站 |
+
+## 分析与SEO工具集成
+
+### Google Search Console
+
+1. 访问 [Google Search Console](https://search.google.com/search-console)
+2. 添加属性（网址前缀）：`https://www.milimaili.com/`
+3. 选择 **HTML 标记** 验证方式，复制 `content` 值
+4. 替换所有 HTML 页面中 `google-site-verification` meta 标签的 `YOUR_GOOGLE_VERIFICATION_CODE`
+5. 验证成功后，进入 **Sitemaps** 提交：`https://www.milimaili.com/sitemap.xml`
+
+### Cloudflare Web Analytics（推荐）
+
+> 与 Cloudflare Pages 原生集成，完全免费，无需 Cookie 横幅，性能零损耗。
+
+当前已在所有页面集成：
+```html
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "YOUR_TOKEN"}'></script>
+```
+
+**启用方式：**
+1. 在 [Cloudflare Dashboard](https://dash.cloudflare.com/) → 你的域名 → **Speed** → **Optimization** → **Cloudflare Web Analytics**
+2. 复制站点对应的 **Beacon Token**
+3. 替换所有 HTML 页面中 `YOUR_CLOUDFLARE_BEACON_TOKEN` 为真实 Token
+4. 重新部署后即可在 Dashboard 查看访问数据
+
+**特性：**
+- 无客户端 Cookie，无需隐私同意弹窗
+- 不影响页面加载性能（`defer` 异步加载）
+- 支持核心 Web 指标（Core Web Vitals）监控
+- 与 Cloudflare Pages 部署流程无缝衔接
 
 ## 待填充内容
 
