@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.egret-bio.com/sitemap.xml
+Sitemap: https://www.milimaili.com/sitemap.xml
